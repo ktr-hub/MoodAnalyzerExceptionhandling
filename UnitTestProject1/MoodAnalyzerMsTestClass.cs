@@ -8,6 +8,7 @@ namespace MoodAnalyzerMsTest
     {
         [TestMethod]
         [DataRow (null)]
+        [DataRow ("")]
         public void TestMethod1(string messages)
         {
             string expected = "HAPPY";

@@ -5,25 +5,25 @@ using System.Text;
 
 namespace MoodAnalyzer
 {
-    public class MoodAnalyzerClass
+    public class MoodAnalyzerClass : Exception
     {
         private string message;
-
-        public MoodAnalyzerClass()
-        {
-            this.message = "I am in Sad Mood";
-        }
+        
 
         public MoodAnalyzerClass(string message)
         {
             this.message = message;
         }
 
-        public string AnalyzerMethod() 
+        public string AnalyzerMethod()
         {
             try
             {
-                if (this.message.ToUpper().Contains("SAD"))
+                if (this.message is null || this.message.Equals(string.Empty))
+                {
+                    throw new MoodAnalyserCustomException("Exception caught : Null encountered");
+                }
+                else if (this.message.ToUpper().Contains("SAD"))
                 {
                     return "SAD";
                 }
@@ -32,10 +32,10 @@ namespace MoodAnalyzer
                     return "HAPPY";
                 }
             }
-            catch (Exception exception)
+            catch (MoodAnalyserCustomException exception)
             {
                 Console.WriteLine(exception);
-                return "HAPPY";
+                return null;
             }
         }
 
