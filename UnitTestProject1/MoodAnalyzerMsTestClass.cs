@@ -7,13 +7,10 @@ namespace MoodAnalyzerMsTest
     public class MoodAnalyzerMsTestClass
     {
         [TestMethod]
-       [DataRow ("I am in Sad Mood")]
-       [DataRow ("I am in Any Mood")]
-        public void TestMethod1(string messages)
+        public void TestMethod1()
         {
             string expected = "SAD";
-            string message = messages;
-            MoodAnalyzerClass moodAnalyzer = new MoodAnalyzerClass(message);
+            MoodAnalyzerClass moodAnalyzer = new MoodAnalyzerClass();
             string result = moodAnalyzer.AnalyzerMethod();
             Assert.AreEqual(expected,result);
 ;        }
