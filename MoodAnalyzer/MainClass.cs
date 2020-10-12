@@ -6,7 +6,7 @@ namespace MoodAnalyzer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Mood Analyzer Problem");
+            Console.WriteLine("Welcome to Mood Analyzer Problem using Exceeption Handling");
         }
     }
 }
