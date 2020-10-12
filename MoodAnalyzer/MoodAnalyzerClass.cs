@@ -35,7 +35,7 @@ namespace MoodAnalyzer
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                return null;
+                return "HAPPY";
             }
         }
 
