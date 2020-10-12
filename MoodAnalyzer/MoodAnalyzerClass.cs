@@ -14,11 +14,11 @@ namespace MoodAnalyzer
             this.message = message;
         }
 
-        public string AnalyzerMethod()
+        public string AnalyzerMethod() 
         {
             try
             {
-                if (this.message.Contains("SAD"))
+                if (this.message.ToUpper().Contains("SAD"))
                 {
                     return "SAD";
                 }
@@ -27,9 +27,10 @@ namespace MoodAnalyzer
                     return "HAPPY";
                 }
             }
-            catch
+            catch (Exception exception)
             {
-                return "HAPPY";
+                Console.WriteLine(exception);
+                return null;
             }
         }
 

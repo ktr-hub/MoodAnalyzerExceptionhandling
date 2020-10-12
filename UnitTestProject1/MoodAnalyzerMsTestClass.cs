@@ -4,15 +4,14 @@ using MoodAnalyzer;
 namespace MoodAnalyzerMsTest
 {
     [TestClass]
-    public class MoodAnalyzerMsTest
+    public class MoodAnalyzerMsTestClass
     {
         [TestMethod]
-       // [DataRow ("I am SAD")]
-        [DataRow (null)]
+       [DataRow ("I am in Sad Mood")]
+       [DataRow ("I am in Any Mood")]
         public void TestMethod1(string messages)
         {
-            //string expected = "SAD";
-            string expected = "HAPPY";
+            string expected = "SAD";
             string message = messages;
             MoodAnalyzerClass moodAnalyzer = new MoodAnalyzerClass(message);
             string result = moodAnalyzer.AnalyzerMethod();

@@ -6,8 +6,7 @@ namespace MoodAnalyzer
     {
         static void Main(string[] args)
         {
-            //MoodAnalyzerMsTest msTest = new MoodAnalyzerMsTest();
-            //msTest.TestMethod1();
+            Console.WriteLine("Welcome to Mood Analyzer Problem");
         }
     }
 }
