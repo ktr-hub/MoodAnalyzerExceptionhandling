@@ -9,7 +9,10 @@ namespace MoodAnalyzer
     {
         private string message;
         
-
+        public MoodAnalyzerClass()
+        {
+            this.message = null;
+        }
         public MoodAnalyzerClass(string message)
         {
             this.message = message;
@@ -34,10 +37,9 @@ namespace MoodAnalyzer
             }
             catch (MoodAnalyserCustomException exception)
             {
-                Console.WriteLine(exception);
-                return null;
+                
+                return exception.message;
             }
         }
-
     }
 }
