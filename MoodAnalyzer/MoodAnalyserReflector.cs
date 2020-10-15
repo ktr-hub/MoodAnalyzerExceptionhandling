@@ -8,7 +8,7 @@ using MoodAnalyzer;
 
 namespace MoodAnalyzer
 {
-    public class MoodAnalyserFactory
+    public class MoodAnalyserReflector:Exception
     {
         public static object CreateMoodAnalyseUsingParameterized(string className, string constructorName)
         {
@@ -55,5 +55,26 @@ namespace MoodAnalyzer
                 throw new MoodAnalyserCustomException("Constructor is not found");
             }
         }
+
+        public void InvokeMethodUsingReflection()
+        {
+            Type type = typeof(MoodAnalyzer.MoodAnalyzerClass);
+            MethodInfo method = type.GetMethod("AnalyzerMethod");
+            object[] parametersArray = new object[] { };   /// Parameters to be passed in method can be mentioned here
+
+            ConstructorInfo ctor = type.GetConstructor(new[] { typeof(string) });
+            object classInstance = ctor.Invoke(new object[] { "SAD" });
+
+            try
+            {
+                object result = method.Invoke(classInstance, parametersArray);
+                Console.WriteLine(result);
+            }
+            catch(NullReferenceException)
+            {
+                throw new MoodAnalyserCustomException("No such Error method");
+            }
+        }
+
     }
 }

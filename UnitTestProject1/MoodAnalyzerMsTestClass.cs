@@ -25,14 +25,14 @@ namespace MoodAnalyzerMsTest
         {
             string message = null;
             object expected = new MoodAnalyzerClass(message);
-            object result = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyzer.MoodAnalyzerClass", "MoodAnalyzerClass");
+            object result = MoodAnalyserReflector.CreateMoodAnalyse("MoodAnalyzer.MoodAnalyzerClass", "MoodAnalyzerClass");
             expected.Equals(result);
         }
 
         [TestMethod]
         public void GivenClassReturnsObjectParameterized()
         {
-                object result = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterized("MoodAnalyzer.MoodAnalyzerClass", "MoodAnalyzerClass");
+                object result = MoodAnalyserReflector.CreateMoodAnalyseUsingParameterized("MoodAnalyzer.MoodAnalyzerClass", "MoodAnalyzerClass");
                 object expected = new MoodAnalyzerClass("SAD");
                 expected.Equals(result);
            
