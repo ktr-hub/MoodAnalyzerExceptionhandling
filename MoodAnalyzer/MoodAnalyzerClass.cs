@@ -37,7 +37,6 @@ namespace MoodAnalyzer
             }
             catch (MoodAnalyserCustomException exception)
             {
-                
                 return exception.message;
             }
         }

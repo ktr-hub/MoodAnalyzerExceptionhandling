@@ -1,5 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoodAnalyzer;
+using System;
+using System.Reflection;
 
 namespace MoodAnalyzerMsTest
 {
@@ -30,9 +32,21 @@ namespace MoodAnalyzerMsTest
         [TestMethod]
         public void GivenClassReturnsObjectParameterized()
         {
-            object result = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterized("MoodAnalyzer.MoodAnalyzerClass", "MoodAnalyzerClass");
-            object expected = new MoodAnalyzerClass("SAD");
-            expected.Equals(result);
+                object result = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterized("MoodAnalyzer.MoodAnalyzerClass", "MoodAnalyzerClass");
+                object expected = new MoodAnalyzerClass("SAD");
+                expected.Equals(result);
+           
+        }
+        [TestMethod]
+        public void InvokeMethodUsingReflection()
+        {
+            Type type = typeof(MoodAnalyzer.MoodAnalyzerClass);
+            MethodInfo method = type.GetMethod("AnalyzerMethod");   
+            object[] parametersArray = new object[] { };   /// Parameters to be passed in method can be mentioned here
+
+            object classInstance = Activator.CreateInstance(type);
+
+            object result = method.Invoke(classInstance,parametersArray);
         }
 
     }
